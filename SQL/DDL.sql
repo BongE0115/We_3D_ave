@@ -1,4 +1,4 @@
--- Active: 1732260994073@@127.0.0.1@3306@piece
+-- Active: 1733115884572@@127.0.0.1@3306@piece
 -- 사용자 정보를 저장하는 테이블
 CREATE TABLE `User` (
 	`USERNO` INT NOT NULL, -- 사용자 고유 번호 (Primary Key)
