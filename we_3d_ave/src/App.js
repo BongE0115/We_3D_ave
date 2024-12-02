@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// App.jsx
+import React from "react";
+import Header from "./static/Header";
+import Footer from "./static/Footer";
+import HomePage from "./pages/HomePage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen flex flex-col">
+      {/* 헤더 */}
+      <Header />
+
+      {/* 메인 컨텐츠 */}
+      <main className="flex-grow">
+        <HomePage />
+      </main>
+
+      {/* 푸터 */}
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
