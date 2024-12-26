@@ -1,6 +1,6 @@
 // pages/FindIdPage.jsx
 import React from "react";
-import FindIdContainer from "../containers/FindIdContainer";
+import FindIdContainer from "../../containers/FindIdContainer";
 
 // "아이디 찾기" 페이지
 const FindIdPage = () => {

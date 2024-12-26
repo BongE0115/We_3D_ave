@@ -1,6 +1,6 @@
 // SignUpPage.jsx: 회원가입 페이지
 import React from "react";
-import SignUpContainer from "../containers/SignUpContainer";
+import SignUpContainer from "../../containers/SignUpContainer";
 
 // 회원가입 페이지
 const SignUpPage = () => {

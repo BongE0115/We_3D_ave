@@ -1,6 +1,6 @@
 // FindPasswordPage.jsx: 비밀번호 찾기 페이지
 import React from "react";
-import FindPasswordContainer from "../containers/FindPasswordContainer";
+import FindPasswordContainer from "../../containers/FindPasswordContainer";
 
 // 비밀번호 찾기 페이지
 const FindPasswordPage = () => {
