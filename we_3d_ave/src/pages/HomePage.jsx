@@ -1,7 +1,7 @@
 import React from "react"; 
-import CategoryMenu from "../components/CategoryMenu"; 
+import CategoryMenu from "../components/mainpage/CategoryMenu"; 
 import ItemList from "../containers/ItemList"; 
-import LoginForm from "../components/LoginForm"; 
+import LoginForm from "../components/mainpage/LoginForm"; 
 
 const HomePage = () => { 
   return ( 

@@ -1,7 +1,6 @@
-// FindPasswordContainer.jsx: 비밀번호 찾기 컨테이너
 import React, { useState } from "react";
-import InputField from "../components/InputField";
-import Button from "../components/Button";
+import InputField from "../components/user/InputField";
+import Button from "../components/user/Button";
 
 // 비밀번호 찾기 컨테이너
 const FindPasswordContainer = () => {
@@ -22,43 +21,80 @@ const FindPasswordContainer = () => {
   };
 
   return (
-    <div className="space-y-6">
-      {/* 페이지 제목 */}
-      <h1 className="text-3xl font-bold text-center">비밀번호 찾기</h1>
+    <div className="w-full max-w-[80%] md:max-w-[720px] lg:max-w-[960px] bg-white shadow-md rounded-xl px-6 py-10 relative">
+      {/* 제목 */}
+      <h1 className="text-3xl md:text-2xl font-bold text-center mb-10">
+        비밀번호 찾기
+      </h1>
 
       {/* 이름 입력 */}
-      <InputField
-        label="이름"
-        placeholder="예) 홍길동"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+      <div className="mb-6">
+        <label className="block text-lg md:text-md font-light text-black mb-2">
+          이름
+        </label>
+        <input
+          type="text"
+          placeholder="예) 홍길동"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full h-12 md:h-16 px-4 bg-gray-200/50 border border-black rounded-lg text-lg md:text-md placeholder-gray-400"
+        />
+      </div>
 
       {/* 이메일 입력 및 인증 요청 */}
-      <div className="flex items-center gap-4">
-        <InputField
-          label="이메일"
-          placeholder="예) apple@gmail.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <Button text="인증 요청" onClick={handleRequestCode} variant="primary" />
+      <div className="mb-6">
+        <label className="block text-lg md:text-md font-light text-black mb-2">
+          이메일
+        </label>
+        <div className="flex gap-3">
+          <input
+            type="email"
+            placeholder="예) apple@gmail.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full h-12 md:h-16 px-4 bg-gray-200/50 border border-black rounded-lg text-lg md:text-md placeholder-gray-400"
+          />
+          <button
+            onClick={handleRequestCode}
+            className="w-32 md:w-40 h-12 md:h-16 bg-gray-300 border border-black rounded-lg text-lg md:text-md"
+          >
+            인증 요청
+          </button>
+        </div>
+        
       </div>
 
       {/* 인증번호 입력 및 확인 */}
-      <div className="flex items-center gap-4">
-        <InputField
-          label="인증번호"
-          placeholder="인증번호를 입력해주세요."
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
-        />
-        <Button text="인증번호 확인" onClick={handleVerifyCode} variant="primary" />
+      <div className="mb-10">
+        <label className="block text-lg md:text-md font-light text-black mb-2">
+          인증번호
+        </label>
+        <div className="flex gap-3">
+          <input
+            type="text"
+            placeholder="인증번호를 입력해주세요."
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+            className="w-full h-12 md:h-16 px-4 bg-gray-200/50 border border-black rounded-lg text-lg md:text-md placeholder-gray-400"
+          />
+          <button
+            onClick={handleVerifyCode}
+            className="w-32 md:w-40 h-12 md:h-16 bg-gray-300 border border-black rounded-lg text-lg md:text-md"
+          >
+            인증번호 확인
+          </button>
+        </div>
+        
       </div>
 
       {/* 취소 버튼 */}
-      <div className="flex justify-center">
-        <Button text="취소" onClick={handleCancel} />
+      <div>
+        <button
+          onClick={handleCancel}
+          className="w-full h-12 md:h-16 bg-gray-300 border border-black rounded-lg text-lg md:text-md"
+        >
+          취소
+        </button>
       </div>
     </div>
   );

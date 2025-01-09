@@ -10,11 +10,11 @@ const Header = () => {
 
   return ( 
     <header className="flex items-center justify-between px-4 py-2 bg-white shadow-md"> 
-      {/* 로고 */} 
-      <div className="flex items-center space-x-2"> 
-        <img src="/logo.png" alt="3D Weave Logo" className="h-8" /> 
-        <span className="text-lg font-bold text-blue-700">3D Weave</span> 
-      </div> 
+      {/* 로고 */}
+        <div className="flex items-center space-x-2"> 
+          <img src="/images/logo.png" alt="WE_3D_AVE Logo" className="h-8" /> 
+          <span className="text-lg font-bold text-blue-700">WE_3D_AVE</span> 
+        </div>
       {/* 검색바 */} 
       <div className="relative w-full sm:w-2/3 max-w-lg"> 
         <input 

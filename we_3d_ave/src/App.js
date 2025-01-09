@@ -4,9 +4,9 @@ import { BrowserRouter, Route, Routes, useNavigate, useLocation } from 'react-ro
 import Header from "./static/Header";
 import Footer from "./static/Footer";
 import HomePage from "./pages/HomePage";
-import FindIdPage from "./pages/FindIdPage";
-import FindPasswordPage from "./pages/FindPasswordPage"
-import SignUpPage from "./pages/SignUpPage"
+import FindIdPage from "./pages/user/FindIdPage";
+import FindPasswordPage from "./pages/user/FindPasswordPage"
+import SignUpPage from "./pages/user/SignUpPage"
 
 function App() {
   return (
