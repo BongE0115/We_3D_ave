@@ -1,9 +1,5 @@
-// SignUpContainer.jsx: 회원가입 컨테이너
 import React, { useState } from "react";
-import InputField from "../components/InputField";
-import Button from "../components/Button";
 
-// 회원가입 컨테이너
 const SignUpContainer = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -12,81 +8,154 @@ const SignUpContainer = () => {
   const [code, setCode] = useState("");
 
   const handleCheckId = () => {
-    console.log("중복 확인:", id);
+    if (!id) {
+      alert("아이디를 입력해주세요.");
+      return;
+    }
+    alert("아이디 중복 확인이 완료되었습니다.");
   };
 
   const handleRequestCode = () => {
-    console.log("인증 요청:", email);
+    if (!email) {
+      alert("이메일을 입력해주세요.");
+      return;
+    }
+    alert("인증번호가 발송되었습니다.");
   };
 
   const handleVerifyCode = () => {
-    console.log("인증번호 확인:", code);
+    if (!code) {
+      alert("인증번호를 입력해주세요.");
+      return;
+    }
+    alert("인증번호가 확인되었습니다.");
   };
 
   const handleCancel = () => {
-    console.log("취소 버튼 클릭됨");
+    alert("회원가입이 취소되었습니다.");
+  };
+
+  const handleSignUp = () => {
+    if (!id || !password || !confirmPassword || !email || !code) {
+      alert("모든 정보를 입력해주세요.");
+      return;
+    }
+    if (password !== confirmPassword) {
+      alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+    alert("회원가입이 완료되었습니다.");
   };
 
   return (
-    <div className="space-y-6">
-      {/* 페이지 제목 */}
-      <h1 className="text-3xl font-bold text-center">회원가입</h1>
+    <div
+      className="w-full max-w-[80%] md:max-w-[720px] lg:max-w-[960px] bg-white shadow-md rounded-xl px-6 py-10 relative"
+      style={{ fontFamily: "'Inter', sans-serif" }}
+    >
+      {/* 제목 */}
+      <h1 className="text-2xl md:text-2xl font-bold text-center text-black mb-10">
+        회원가입
+      </h1>
 
-      {/* 아이디 입력 및 중복 확인 */}
-      <div className="flex items-center gap-4">
-        <InputField
-          label="아이디"
-          placeholder="예) abcd1234"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-        />
-        <Button text="중복 확인" onClick={handleCheckId} variant="primary" />
+      {/* 아이디 입력 */}
+      <div className="mb-6">
+        <label className="block text-md font-light text-black mb-2">
+          아이디
+        </label>
+        <div className="flex gap-3">
+          <input
+            type="text"
+            placeholder="예) abcd1234"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+            className="flex-1 h-12 px-4 bg-gray-200/50 border border-black rounded-lg text-md placeholder-gray-400"
+          />
+          <button
+            onClick={handleCheckId}
+            className="px-4 py-2 bg-gray-300 border border-black rounded-lg text-md"
+          >
+            중복 확인
+          </button>
+        </div>
       </div>
 
       {/* 비밀번호 입력 */}
-      <InputField
-        label="비밀번호"
-        placeholder="영문 숫자 조합 8~16자"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-
-      {/* 비밀번호 확인 입력 */}
-      <InputField
-        label="비밀번호 확인"
-        placeholder="비밀번호를 한 번 더 입력해주세요."
-        type="password"
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-      />
-
-      {/* 이메일 입력 및 인증 요청 */}
-      <div className="flex items-center gap-4">
-        <InputField
-          label="이메일"
-          placeholder="예) apple@gmail.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+      <div className="mb-6">
+        <label className="block text-md font-light text-black mb-2">
+          비밀번호
+        </label>
+        <input
+          type="password"
+          placeholder="영문 숫자 조합 8~16자"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full h-12 px-4 bg-gray-200/50 border border-black rounded-lg text-md placeholder-gray-400"
         />
-        <Button text="인증 요청" onClick={handleRequestCode} variant="primary" />
       </div>
 
-      {/* 인증번호 입력 및 확인 */}
-      <div className="flex items-center gap-4">
-        <InputField
-          label="인증번호"
-          placeholder="인증번호를 입력해주세요."
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
+      {/* 비밀번호 확인 */}
+      <div className="mb-6">
+        <label className="block text-md font-light text-black mb-2">
+          비밀번호 확인
+        </label>
+        <input
+          type="password"
+          placeholder="비밀번호를 한 번 더 입력해주세요."
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          className="w-full h-12 px-4 bg-gray-200/50 border border-black rounded-lg text-md placeholder-gray-400"
         />
-        <Button text="인증번호 확인" onClick={handleVerifyCode} variant="primary" />
+      </div>
+
+      {/* 이메일 입력 */}
+      <div className="mb-6">
+        <label className="block text-md font-light text-black mb-2">
+          이메일
+        </label>
+        <div className="flex gap-3">
+          <input
+            type="email"
+            placeholder="예) apple@gmail.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="flex-1 h-12 px-4 bg-gray-200/50 border border-black rounded-lg text-md placeholder-gray-400"
+          />
+          <button
+            onClick={handleRequestCode}
+            className="px-4 py-2 bg-gray-300 border border-black rounded-lg text-md"
+          >
+            인증 요청
+          </button>
+        </div>
+      </div>
+
+      {/* 인증번호 입력 */}
+      <div className="mb-6">
+        
+        <div className="flex gap-3">
+          <input
+            type="text"
+            placeholder="인증번호를 입력해주세요."
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+            className="flex-1 h-12 px-4 bg-gray-200/50 border border-black rounded-lg text-md placeholder-gray-400"
+          />
+          <button
+            onClick={handleVerifyCode}
+            className="px-4 py-2 bg-gray-300 border border-black rounded-lg text-md"
+          >
+            인증번호 확인
+          </button>
+        </div>
       </div>
 
       {/* 취소 버튼 */}
-      <div className="flex justify-center">
-        <Button text="취소" onClick={handleCancel} />
-      </div>
+      <button
+        onClick={handleCancel}
+        className="w-full h-12 bg-gray-300 border border-black rounded-lg text-md text-black font-medium hover:bg-gray-400"
+      >
+        취소
+      </button>
     </div>
   );
 };
