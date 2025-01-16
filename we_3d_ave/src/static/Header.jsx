@@ -11,10 +11,10 @@ const Header = () => {
   return ( 
     <header className="flex items-center justify-between px-4 py-2 bg-white shadow-md"> 
       {/* 로고 */}
-        <div className="flex items-center space-x-2"> 
+        <Link to="/" className="flex items-center space-x-2"> 
           <img src="/images/logo.png" alt="WE_3D_AVE Logo" className="h-8" /> 
           <span className="text-lg font-bold text-blue-700">WE_3D_AVE</span> 
-        </div>
+        </Link>
       {/* 검색바 */} 
       <div className="relative w-full sm:w-2/3 max-w-lg"> 
         <input 
@@ -42,18 +42,7 @@ const Header = () => {
         <Link to="/" className="hover:text-blue-700 font-bold"> 
           로그인 
         </Link> 
-      </div>  {/* 로그인 후 메뉴 */} 
- {/* <div className="flex items-center space-x-4 text-sm text-gray-700"> 
- <Link to="/cart" className="hover:text-blue-700 font-bold"> 
- 장바구니 
- </Link> 
- <Link to="/mypage" className="hover:text-blue-700 font-bold"> 
- 마이페이지 
- </Link> 
- <Link to="/" className="hover:text-blue-700 font-bold"> 
- 로그인 
- </Link> 
- </div> */} 
+      </div>  
       </header> 
   ); 
 }; 
