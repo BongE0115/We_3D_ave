@@ -1,19 +1,18 @@
-// components/Button.jsx
+// components/Button.js
 import React from "react";
 
-// 버튼 컴포넌트
-const Button = ({ text, onClick, variant = "default" }) => {
-  const buttonStyle =
-    variant === "primary"
-      ? "bg-blue-500 text-white"
-      : "bg-gray-300 text-black";
-
+const Button = ({ label, onClick, primary = false, disabled = false }) => {
   return (
     <button
       onClick={onClick}
-      className={`rounded-lg px-4 py-2 mt-2 ${buttonStyle} hover:opacity-90`}
+      disabled={disabled}
+      className={`w-full h-12 px-4 text-lg font-bold rounded-lg ${
+        primary
+          ? "bg-black text-white"
+          : "bg-gray-200 text-black border border-black"
+      } disabled:opacity-50`}
     >
-      {text}
+      {label}
     </button>
   );
 };
